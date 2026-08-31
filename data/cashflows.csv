@@ -1,0 +1,54 @@
+date;type;montant;reference;libelle
+2022-03-31;CAPITAL_CALL;8330000.0;;Appel de capital
+2022-03-31;INVESTMENT;8000000;PC01;Acquisition ARDENNE LOGISTICS SA
+2022-03-31;MANAGEMENT_FEE;250000.0;GP01;Commission de gestion du trimestre
+2022-03-31;FUND_EXPENSE;30000;;Frais de fonctionnement du fonds
+2022-06-30;CAPITAL_CALL;280000.0;;Appel de capital
+2022-06-30;MANAGEMENT_FEE;250000.0;GP01;Commission de gestion du trimestre
+2022-06-30;FUND_EXPENSE;30000;;Frais de fonctionnement du fonds
+2022-09-30;CAPITAL_CALL;6780000.0;;Appel de capital
+2022-09-30;INVESTMENT;6500000;PC02;Acquisition MOSELLE MEDTECH SAS
+2022-09-30;MANAGEMENT_FEE;250000.0;GP01;Commission de gestion du trimestre
+2022-09-30;FUND_EXPENSE;30000;;Frais de fonctionnement du fonds
+2022-12-31;CAPITAL_CALL;280000.0;;Appel de capital
+2022-12-31;MANAGEMENT_FEE;250000.0;GP01;Commission de gestion du trimestre
+2022-12-31;FUND_EXPENSE;30000;;Frais de fonctionnement du fonds
+2023-03-31;CAPITAL_CALL;9280000.0;;Appel de capital
+2023-03-31;INVESTMENT;9000000;PC03;Acquisition KIRCHBERG SAAS SA
+2023-03-31;MANAGEMENT_FEE;250000.0;GP01;Commission de gestion du trimestre
+2023-03-31;FUND_EXPENSE;30000;;Frais de fonctionnement du fonds
+2023-06-30;CAPITAL_CALL;280000.0;;Appel de capital
+2023-06-30;MANAGEMENT_FEE;250000.0;GP01;Commission de gestion du trimestre
+2023-06-30;FUND_EXPENSE;30000;;Frais de fonctionnement du fonds
+2023-09-30;CAPITAL_CALL;7780000.0;;Appel de capital
+2023-09-30;INVESTMENT;7500000;PC04;Acquisition SURE INDUSTRIES NV
+2023-09-30;MANAGEMENT_FEE;250000.0;GP01;Commission de gestion du trimestre
+2023-09-30;FUND_EXPENSE;30000;;Frais de fonctionnement du fonds
+2023-12-31;CAPITAL_CALL;280000.0;;Appel de capital
+2023-12-31;MANAGEMENT_FEE;250000.0;GP01;Commission de gestion du trimestre
+2023-12-31;FUND_EXPENSE;30000;;Frais de fonctionnement du fonds
+2024-03-31;CAPITAL_CALL;280000.0;;Appel de capital
+2024-03-31;MANAGEMENT_FEE;250000.0;GP01;Commission de gestion du trimestre
+2024-03-31;FUND_EXPENSE;30000;;Frais de fonctionnement du fonds
+2024-06-30;CAPITAL_CALL;6280000.0;;Appel de capital
+2024-06-30;INVESTMENT;6000000;PC05;Acquisition ALZETTE RENEWABLES SA
+2024-06-30;MANAGEMENT_FEE;250000.0;GP01;Commission de gestion du trimestre
+2024-06-30;FUND_EXPENSE;30000;;Frais de fonctionnement du fonds
+2024-09-30;CAPITAL_CALL;280000.0;;Appel de capital
+2024-09-30;MANAGEMENT_FEE;250000.0;GP01;Commission de gestion du trimestre
+2024-09-30;FUND_EXPENSE;30000;;Frais de fonctionnement du fonds
+2024-12-31;CAPITAL_CALL;280000.0;;Appel de capital
+2024-12-31;MANAGEMENT_FEE;250000.0;GP01;Commission de gestion du trimestre
+2024-12-31;FUND_EXPENSE;30000;;Frais de fonctionnement du fonds
+2025-03-31;CAPITAL_CALL;280000.0;;Appel de capital
+2025-03-31;MANAGEMENT_FEE;250000.0;GP01;Commission de gestion du trimestre
+2025-03-31;FUND_EXPENSE;30000;;Frais de fonctionnement du fonds
+2025-06-30;CAPITAL_CALL;280000.0;;Appel de capital
+2025-06-30;MANAGEMENT_FEE;250000.0;GP01;Commission de gestion du trimestre
+2025-06-30;FUND_EXPENSE;30000;;Frais de fonctionnement du fonds
+2025-06-30;EXIT_PROCEEDS;18200000;PC02;Cession MOSELLE MEDTECH SAS
+2025-06-30;DISTRIBUTION;17500000;;Distribution aux associes
+2025-09-30;MANAGEMENT_FEE;250000.0;GP01;Commission de gestion du trimestre
+2025-09-30;FUND_EXPENSE;30000;;Frais de fonctionnement du fonds
+2025-12-31;MANAGEMENT_FEE;250000.0;GP01;Commission de gestion du trimestre
+2025-12-31;FUND_EXPENSE;30000;;Frais de fonctionnement du fonds

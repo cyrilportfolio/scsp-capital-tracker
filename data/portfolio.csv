@@ -1,0 +1,6 @@
+code;societe;secteur;pays;date_acquisition;cout_acquisition;date_cession;produit_cession
+PC01;ARDENNE LOGISTICS SA;Transport et logistique;LU;2022-03-31;8000000;;
+PC02;MOSELLE MEDTECH SAS;Sante;FR;2022-09-30;6500000;2025-06-30;18200000
+PC03;KIRCHBERG SAAS SA;Logiciel;LU;2023-03-31;9000000;;
+PC04;SURE INDUSTRIES NV;Industrie;BE;2023-09-30;7500000;;
+PC05;ALZETTE RENEWABLES SA;Energie;LU;2024-06-30;6000000;;
