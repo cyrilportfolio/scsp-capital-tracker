@@ -1,0 +1,24 @@
+%%{init: {'flowchart': {'wrappingWidth': 380, 'curve': 'basis'}}}%%
+flowchart TD
+    B("<b>Cumulative cash bucket</b><br/>EUR 17.50m already distributed<br/>+ EUR 39.41m of residual value<br/><b>= EUR 56.91m</b>")
+
+    B --> S1("<b>1 · Return of capital</b><br/>until every contribution drawn<br/>since inception has been repaid")
+    S1 --> S2("<b>2 · Preferred return</b><br/>8 % hurdle accrued day by day<br/>on outstanding contributions")
+    S2 --> S3("<b>3 · Catch-up</b><br/>25 % of the preferred return —<br/>the 20 % grossed up over the 80 %")
+    S3 --> S4("<b>4 · 80 / 20 split</b><br/>of what is left in the bucket")
+
+    S1 -->|"EUR 40.97m"| LP
+    S2 -->|"EUR 8.89m"| LP
+    S4 -->|"EUR 3.86m"| LP
+    S3 -->|"EUR 2.22m"| CIP
+    S4 -->|"EUR 0.96m"| CIP
+
+    LP("<b>To the partners</b><br/><b>EUR 53.72m</b>")
+    CIP("<b>To the carried interest partner</b><br/><b>EUR 3.19m</b>")
+
+    classDef step fill:#eef2fb,stroke:#1f3864,stroke-width:1.5px,color:#101828
+    classDef pot fill:#e7f3ec,stroke:#1e6b45,stroke-width:1.5px,color:#101828
+    classDef carry fill:#fdf0e3,stroke:#9a5b16,stroke-width:1.5px,color:#101828
+    class B,S1,S2,S3,S4 step
+    class LP pot
+    class CIP carry

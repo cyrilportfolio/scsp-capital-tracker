@@ -32,31 +32,9 @@ C'est le cœur du dépôt, et le seul endroit où une erreur coûterait cher au 
 
 Le modèle retenu est le **whole-of-fund européen** : toutes les contributions reviennent d'abord, au niveau du fonds pris dans son ensemble, avant que le titulaire du carried interest ne touche quoi que ce soit. La mécanique suit le *cumulative cash bucket* — à une date donnée, le seau contient les distributions déjà versées plus la valeur résiduelle du fonds, et ce seau est déversé sur quatre marches.
 
-```mermaid
-flowchart TD
-    B("Cumulative cash bucket : 56,91 M€")
+![La cascade de repartition whole-of-fund, marche par marche, avec les montants du jeu de donnees](docs/cascade-fr.png)
 
-    B --> S1("1 · Retour du capital")
-    S1 --> S2("2 · Preferred return, hurdle de 8 %")
-    S2 --> S3("3 · Catch-up, 25 % du preferred return")
-    S3 --> S4("4 · Partage 80 / 20 du solde")
-
-    S1 -->|"40,97 M€"| LP
-    S2 -->|"8,89 M€"| LP
-    S4 -->|"3,86 M€"| LP
-    S3 -->|"2,22 M€"| CIP
-    S4 -->|"0,96 M€"| CIP
-
-    LP("Aux associés : 53,72 M€")
-    CIP("Au carried interest partner : 3,19 M€")
-
-    classDef step fill:#eef2fb,stroke:#1f3864,stroke-width:1px,color:#101828
-    classDef pot fill:#e7f3ec,stroke:#1e6b45,stroke-width:1px,color:#101828
-    classDef carry fill:#fdf0e3,stroke:#9a5b16,stroke-width:1px,color:#101828
-    class B,S1,S2,S3,S4 step
-    class LP pot
-    class CIP carry
-```
+<sub>Source du schéma : [`docs/cascade-fr.mmd`](docs/cascade-fr.mmd) — `mmdc -i docs/cascade-fr.mmd -o docs/cascade-fr.png -w 1200 -s 2 -b white`</sub>
 
 Le seau réunit les 17,50 M€ déjà distribués et les 39,41 M€ de valeur résiduelle. Les deux marches du milieu sont celles qui décident de tout : le hurdle fixe le seuil au-delà duquel le gérant est intéressé, le catch-up lui fait rattraper d'un coup sa part de ce hurdle.
 
@@ -294,31 +272,9 @@ This is the heart of the repository, and the only place where a mistake would co
 
 The model is the **European whole-of-fund** arrangement: every contribution comes back first, at the level of the fund as a whole, before the carried interest partner sees anything. The mechanics follow the cumulative cash bucket — at any date the bucket holds the distributions already paid plus the residual value of the fund, and that bucket is poured down four steps.
 
-```mermaid
-flowchart TD
-    B("Cumulative cash bucket: EUR 56.91m")
+![The whole-of-fund distribution waterfall, step by step, with the figures from the shipped dataset](docs/cascade-en.png)
 
-    B --> S1("1 · Return of capital")
-    S1 --> S2("2 · Preferred return, an 8 % hurdle")
-    S2 --> S3("3 · Catch-up, 25 % of the preferred return")
-    S3 --> S4("4 · 80 / 20 split of the balance")
-
-    S1 -->|"EUR 40.97m"| LP
-    S2 -->|"EUR 8.89m"| LP
-    S4 -->|"EUR 3.86m"| LP
-    S3 -->|"EUR 2.22m"| CIP
-    S4 -->|"EUR 0.96m"| CIP
-
-    LP("To the partners: EUR 53.72m")
-    CIP("To the carried interest partner: EUR 3.19m")
-
-    classDef step fill:#eef2fb,stroke:#1f3864,stroke-width:1px,color:#101828
-    classDef pot fill:#e7f3ec,stroke:#1e6b45,stroke-width:1px,color:#101828
-    classDef carry fill:#fdf0e3,stroke:#9a5b16,stroke-width:1px,color:#101828
-    class B,S1,S2,S3,S4 step
-    class LP pot
-    class CIP carry
-```
+<sub>Diagram source: [`docs/cascade-en.mmd`](docs/cascade-en.mmd) — `mmdc -i docs/cascade-en.mmd -o docs/cascade-en.png -w 1200 -s 2 -b white`</sub>
 
 The bucket holds the EUR 17.50m already distributed and the EUR 39.41m of residual value. The two middle steps are where the economics are decided: the hurdle sets the threshold above which the manager participates, and the catch-up hands it its share of that hurdle in one go.
 
