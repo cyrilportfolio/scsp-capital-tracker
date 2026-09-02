@@ -34,12 +34,12 @@ Le modèle retenu est le **whole-of-fund européen** : toutes les contributions 
 
 ```mermaid
 flowchart TD
-    B("<b>Cumulative cash bucket</b><br/>17,50 M€ déjà distribués<br/>+ 39,41 M€ de valeur résiduelle<br/><b>= 56,91 M€</b>")
+    B("Cumulative cash bucket : 56,91 M€")
 
-    B --> S1("<b>1 · Retour du capital</b><br/>jusqu'au remboursement intégral<br/>des contributions appelées")
-    S1 --> S2("<b>2 · Preferred return</b><br/>hurdle de 8 % accru jour par jour<br/>sur les contributions non remboursées")
-    S2 --> S3("<b>3 · Catch-up</b><br/>25 % du preferred return —<br/>le 20 % rapporté aux 80 % restants")
-    S3 --> S4("<b>4 · Partage 80 / 20</b><br/>du solde du seau")
+    B --> S1("1 · Retour du capital")
+    S1 --> S2("2 · Preferred return, hurdle de 8 %")
+    S2 --> S3("3 · Catch-up, 25 % du preferred return")
+    S3 --> S4("4 · Partage 80 / 20 du solde")
 
     S1 -->|"40,97 M€"| LP
     S2 -->|"8,89 M€"| LP
@@ -47,8 +47,8 @@ flowchart TD
     S3 -->|"2,22 M€"| CIP
     S4 -->|"0,96 M€"| CIP
 
-    LP("<b>Aux associés</b><br/><b>53,72 M€</b>")
-    CIP("<b>Au carried interest partner</b><br/><b>3,19 M€</b>")
+    LP("Aux associés : 53,72 M€")
+    CIP("Au carried interest partner : 3,19 M€")
 
     classDef step fill:#eef2fb,stroke:#1f3864,stroke-width:1px,color:#101828
     classDef pot fill:#e7f3ec,stroke:#1e6b45,stroke-width:1px,color:#101828
@@ -58,7 +58,7 @@ flowchart TD
     class CIP carry
 ```
 
-Les deux marches du milieu sont celles qui décident de tout : le hurdle fixe le seuil au-delà duquel le gérant est intéressé, le catch-up lui fait rattraper d'un coup sa part de ce hurdle.
+Le seau réunit les 17,50 M€ déjà distribués et les 39,41 M€ de valeur résiduelle. Les deux marches du milieu sont celles qui décident de tout : le hurdle fixe le seuil au-delà duquel le gérant est intéressé, le catch-up lui fait rattraper d'un coup sa part de ce hurdle.
 
 Voici le résultat au 31 décembre 2025 sur le jeu de données fourni :
 
@@ -296,12 +296,12 @@ The model is the **European whole-of-fund** arrangement: every contribution come
 
 ```mermaid
 flowchart TD
-    B("<b>Cumulative cash bucket</b><br/>EUR 17.50m already distributed<br/>+ EUR 39.41m of residual value<br/><b>= EUR 56.91m</b>")
+    B("Cumulative cash bucket: EUR 56.91m")
 
-    B --> S1("<b>1 · Return of capital</b><br/>until every contribution drawn<br/>since inception has been repaid")
-    S1 --> S2("<b>2 · Preferred return</b><br/>8 % hurdle accrued day by day<br/>on outstanding contributions")
-    S2 --> S3("<b>3 · Catch-up</b><br/>25 % of the preferred return —<br/>the 20 % grossed up over the 80 %")
-    S3 --> S4("<b>4 · 80 / 20 split</b><br/>of what is left in the bucket")
+    B --> S1("1 · Return of capital")
+    S1 --> S2("2 · Preferred return, an 8 % hurdle")
+    S2 --> S3("3 · Catch-up, 25 % of the preferred return")
+    S3 --> S4("4 · 80 / 20 split of the balance")
 
     S1 -->|"EUR 40.97m"| LP
     S2 -->|"EUR 8.89m"| LP
@@ -309,8 +309,8 @@ flowchart TD
     S3 -->|"EUR 2.22m"| CIP
     S4 -->|"EUR 0.96m"| CIP
 
-    LP("<b>To the partners</b><br/><b>EUR 53.72m</b>")
-    CIP("<b>To the carried interest partner</b><br/><b>EUR 3.19m</b>")
+    LP("To the partners: EUR 53.72m")
+    CIP("To the carried interest partner: EUR 3.19m")
 
     classDef step fill:#eef2fb,stroke:#1f3864,stroke-width:1px,color:#101828
     classDef pot fill:#e7f3ec,stroke:#1e6b45,stroke-width:1px,color:#101828
@@ -319,6 +319,8 @@ flowchart TD
     class LP pot
     class CIP carry
 ```
+
+The bucket holds the EUR 17.50m already distributed and the EUR 39.41m of residual value. The two middle steps are where the economics are decided: the hurdle sets the threshold above which the manager participates, and the catch-up hands it its share of that hurdle in one go.
 
 Here is what the pipeline returns at 31 December 2025 on the shipped dataset:
 
