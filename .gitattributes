@@ -1,0 +1,6 @@
+# Keep the working copy identical on every platform: the sources are LF,
+# and Windows checkouts stay LF too. Silences the CRLF conversion warnings.
+* text=auto eol=lf
+
+*.png binary
+*.xlsx binary

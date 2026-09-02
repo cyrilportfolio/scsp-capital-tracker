@@ -42,6 +42,10 @@ def build_parser() -> argparse.ArgumentParser:
                         help="part de carried interest au-dela du hurdle")
     parser.add_argument("--associe", default=None,
                         help="code d'un associe dont detailler l'etat de compte")
+    parser.add_argument("--avis", default=None,
+                        help=("reference de l'appel dont editer l'avis "
+                              "(par defaut, le dernier appel a la date de "
+                              "reporting ; 'liste' affiche les references)"))
     parser.add_argument("--strict", action="store_true",
                         help="code de sortie 2 si une anomalie bloquante est detectee")
     parser.add_argument("--silencieux", action="store_true")
@@ -74,6 +78,20 @@ def run(args) -> int:
 
     calls = capital_calls.call_schedule(fund.cashflows, fund.investors)
     paid = capital_calls.distribution_schedule(fund.cashflows, fund.investors)
+
+    references = capital_calls.call_references(calls, as_of)
+    if args.avis == "liste":
+        print("APPELS DE CAPITAL")
+        for reference in references:
+            total = calls.loc[calls["appel"] == reference,
+                              "montant_appel_total"].iloc[0]
+            when = calls.loc[calls["appel"] == reference, "date"].iloc[0]
+            print(f"  {reference}  {when:%d/%m/%Y}  {total:>14,.2f} EUR")
+        return 0
+    notice = None
+    if references:
+        notice = capital_calls.call_notice(
+            calls, fund.investors, fund.cashflows, args.avis or references[-1])
     status = capital_calls.commitment_status(fund.investors, calls, as_of)
     nav_by_quarter = nav.quarterly_nav(fund, quarters)
 
@@ -154,6 +172,8 @@ def run(args) -> int:
         "associes": allocations.allocation_table(fund.investors),
         "engagements": status,
         "appels": calls,
+        **({"avis": notice.allocation, "avis_objet": notice.purpose}
+           if notice is not None else {}),
         "portefeuille": nav.portfolio_detail(fund, as_of),
         "nav": nav_by_quarter,
         "comptes": accounts,
@@ -195,6 +215,25 @@ def run(args) -> int:
         print(f"  TRI net du fonds       : {context['irr']}")
         print(f"  Anomalies              : {context['anomalies']} "
               f"(dont {context['blocking']} bloquantes)")
+        if notice is not None and args.avis:
+            print()
+            print(f"AVIS D'APPEL DE CAPITAL — {notice.reference}")
+            print(f"  Date de l'avis       : {notice.notice_date:%d/%m/%Y}")
+            print(f"  Date de reglement    : {notice.funding_date:%d/%m/%Y}")
+            print(f"  Montant appele       : {notice.amount:,.2f} EUR")
+            print()
+            _print_table(notice.purpose.assign(
+                montant=notice.purpose["montant"].map("{:,.2f}".format)),
+                ["poste", "montant"])
+            print()
+            _print_table(notice.allocation.assign(
+                engagement=notice.allocation["engagement"].map("{:,.2f}".format),
+                appele_avant=notice.allocation["appele_avant"].map("{:,.2f}".format),
+                montant_appele=notice.allocation["montant_appele"].map("{:,.2f}".format),
+                appele_apres=notice.allocation["appele_apres"].map("{:,.2f}".format),
+                non_appele=notice.allocation["non_appele"].map("{:,.2f}".format)),
+                ["code", "nom", "engagement", "appele_avant", "montant_appele",
+                 "appele_apres", "non_appele"])
         if args.associe:
             print()
             print(f"ETAT DE COMPTE — {args.associe}")

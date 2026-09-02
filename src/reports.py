@@ -12,6 +12,8 @@ SHEET_TITLES = {
     "anomalies": "Anomalies",
     "associes": "Associes",
     "appels": "Appels de capital",
+    "avis": "Avis d'appel",
+    "avis_objet": "Objet de l'appel",
     "engagements": "Engagements",
     "portefeuille": "Portefeuille",
     "nav": "NAV trimestrielle",
@@ -25,7 +27,8 @@ SHEET_TITLES = {
 
 MONEY_COLUMNS = {
     "engagement", "appele", "non_appele", "montant", "montant_appel_total",
-    "montant_total", "solde_ouverture", "contributions", "distributions",
+    "montant_total", "appele_avant", "montant_appele", "appele_apres",
+    "solde_ouverture", "contributions", "distributions",
     "quote_part_gain_net", "quote_part_commission", "quote_part_frais",
     "carried_interest", "solde_cloture", "resultat_net_attribue",
     "juste_valeur", "cout_acquisition", "produit_cession",

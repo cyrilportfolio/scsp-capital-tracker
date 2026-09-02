@@ -62,6 +62,49 @@ def test_called_capital_matches_the_bank_account(fund, pipeline):
 
 def test_call_notice_lists_every_partner(fund, pipeline):
     reference = pipeline["calls"]["appel"].iloc[0]
-    notice = capital_calls.call_notice(pipeline["calls"], fund.investors, reference)
-    assert len(notice) == len(fund.investors)
-    assert (notice["date_limite_paiement"] > notice["date"]).all()
+    notice = capital_calls.call_notice(
+        pipeline["calls"], fund.investors, fund.cashflows, reference)
+    assert len(notice.allocation) == len(fund.investors)
+    assert (notice.allocation["date_avis"]
+            < notice.allocation["date_de_reglement"]).all()
+
+
+def test_call_notice_adds_back_to_the_amount_called(fund, pipeline):
+    """Every notice shares the whole call, and nothing more."""
+    for reference in capital_calls.call_references(pipeline["calls"]):
+        notice = capital_calls.call_notice(
+            pipeline["calls"], fund.investors, fund.cashflows, reference)
+        shared = round(float(notice.allocation["montant_appele"].sum()), 2)
+        assert shared == notice.amount, reference
+
+
+def test_a_notice_never_draws_more_than_the_commitment(fund, pipeline):
+    for reference in capital_calls.call_references(pipeline["calls"]):
+        notice = capital_calls.call_notice(
+            pipeline["calls"], fund.investors, fund.cashflows, reference)
+        assert (notice.allocation["non_appele"] >= -config.TOLERANCE).all(), reference
+
+
+def test_the_purpose_of_a_call_reconciles_to_the_amount(fund, pipeline):
+    """Needs, opening cash and working capital add back to the amount called."""
+    for reference in capital_calls.call_references(pipeline["calls"]):
+        notice = capital_calls.call_notice(
+            pipeline["calls"], fund.investors, fund.cashflows, reference)
+        purpose = notice.purpose.set_index("poste")["montant"]
+        rebuilt = round(float(
+            purpose["Besoins de tresorerie du trimestre"]
+            + purpose["Tresorerie disponible a l'ouverture"]
+            + purpose["Fonds de roulement laisse au fonds"]), 2)
+        assert rebuilt == notice.amount, reference
+        detail = round(float(
+            purpose["Investissements du trimestre"]
+            + purpose["Commission de gestion"]
+            + purpose["Frais de fonctionnement"]), 2)
+        assert detail == purpose["Besoins de tresorerie du trimestre"], reference
+
+
+def test_an_unknown_call_reference_is_refused(fund, pipeline):
+    import pytest
+    with pytest.raises(ValueError):
+        capital_calls.call_notice(
+            pipeline["calls"], fund.investors, fund.cashflows, "AC-1999-99")

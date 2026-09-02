@@ -68,6 +68,14 @@ CATCH_UP_RATE = CARRY_SPLIT / (1 - CARRY_SPLIT)
 # Allocation rule chosen in the LPA for contributions, income and expenses.
 ALLOCATION_BASIS = "COMMITMENTS"
 
+# Notice period on a capital call. The LPA fixes a minimum number of business
+# days between the day the notice goes out and the day the money is due; ten
+# is the market standard, and the ILPA template is built around it.
+CALL_NOTICE_BUSINESS_DAYS = 10
+# Operating buffer the administrator keeps in the fund's account: a call is
+# sized to leave at least this much after the quarter's outgoings.
+OPERATING_CASH_BUFFER = 50_000.0
+
 # --------------------------------------------------------------------------
 # Tolerances
 # --------------------------------------------------------------------------
